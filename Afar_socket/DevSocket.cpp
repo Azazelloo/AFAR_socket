@@ -1,4 +1,4 @@
-#include "DevSocket.h"
+п»ї#include "DevSocket.h"
 
 Device::Device(string dev_name, const char* ip, size_t port):m_dev_name(dev_name),m_port(port)
 {
@@ -16,18 +16,18 @@ int Device::Connect()
 		return -1;
 	}
 
-	if (INVALID_SOCKET == (sock_dev = socket(AF_INET, SOCK_STREAM, 0))) //____попытка создания сокета
+	if (INVALID_SOCKET == (sock_dev = socket(AF_INET, SOCK_STREAM, 0))) //____РїРѕРїС‹С‚РєР° СЃРѕР·РґР°РЅРёСЏ СЃРѕРєРµС‚Р°
 	{
 		cout << "Socket error:" << WSAGetLastError() << endl;
 		return -1;
 	}
 
-	else //устанавливаем соединение
+	else //СѓСЃС‚Р°РЅР°РІР»РёРІР°РµРј СЃРѕРµРґРёРЅРµРЅРёРµ
 	{
-		ZeroMemory(&addr, sizeof(addr)); //заполняем память нулями
+		ZeroMemory(&addr, sizeof(addr)); //Р·Р°РїРѕР»РЅСЏРµРј РїР°РјСЏС‚СЊ РЅСѓР»СЏРјРё
 		addr.sin_family = AF_INET;
 		addr.sin_addr.S_un.S_addr = inet_addr(m_ip);
-		addr.sin_port = htons(m_port); //переводим порт из обычного представления в TCP/IP
+		addr.sin_port = htons(m_port); //РїРµСЂРµРІРѕРґРёРј РїРѕСЂС‚ РёР· РѕР±С‹С‡РЅРѕРіРѕ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёСЏ РІ TCP/IP
 
 		if (SOCKET_ERROR == (connect(sock_dev, (sockaddr*)&addr, sizeof(addr))))
 		{

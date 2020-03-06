@@ -1,4 +1,4 @@
-#include "Header.h"
+ï»¿#include "Header.h"
 #include "DevSocket.h"
 
 
@@ -10,7 +10,7 @@ int main(void)
 		cout << "Error open ini!" << endl;
 		return 0;
 	}
-
+	stop
 	/*create vector<Device> from ini file*/
 	vector<Device> v_device;
 	string tmp_name;
@@ -23,12 +23,12 @@ int main(void)
 	}
 	File.close();
 	delete[] tmp_ip;
-	cout << "Start........" << endl;
+	//cout << "Start........" << endl;
 
 	/*Connect to all devices*/
 	for (size_t i=0;i<v_device.size();i++)
 	{
-		if (v_device[i].Connect()>0) cout << "Connect to: " << v_device[i].Read("*IDN?\n");
+		if (v_device[i].Connect() > 0) {}//cout << "Connect to: " << v_device[i].Read("*IDN?\n");
 		else
 		{
 			system("pause");
@@ -43,9 +43,9 @@ int main(void)
 
 		g33500B.Disconnect();
 	}
-
+	stop
 	/*delete sockets*/ 
-	//_____ÒÐÅÁÓÅÒÑß ÒÅÑÒÈÐÎÂÀÍÈÅ
+	//_____Ð¢Ð Ð•Ð‘Ð£Ð•Ð¢Ð¡Ð¯ Ð¢Ð•Ð¡Ð¢Ð˜Ð ÐžÐ’ÐÐÐ˜Ð•
 	/*	for (int i=v_device.size()-1;i>=0;i--)
 		{
 			v_device[i].Disconnect();
